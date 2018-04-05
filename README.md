@@ -6,7 +6,14 @@ This is the code for the "How to Do Linear Regression the Right Way" live sessio
 
 This is the code for [this](https://youtu.be/uwwWVAgJBcM) video on Youtube by Siraj Raval. I'm using a small dataset of student test scores and the amount of hours they studied. Intuitively, there must be a relationship right? The more you study, the better your test scores should be. We're going to use [linear regression](https://onlinecourses.science.psu.edu/stat501/node/250) to prove this relationship. 
 
+## Challenge
+
+Re-implement the [previous challenge](https://github.com/bmcilw1/linear_regression_demo), but eliminate the dependency on sklearn. Instead, manually implement a gradient descent approach to arive at the line of best fit. You may find it easier to also eliminate pandas (in favor of genfromtxt). Use matplotlib or other tool to visualize the progress of your algorthim live (hint - slow it down, and no need to show every training step. This technique is called batching). You will want to import numpy directly and use it as much as you can for performance gains (it was being used internally by sklearn).
+
 Here are some helpful links:
+
+#### I Stack Overflowed this for you
+https://stackoverflow.com/questions/11874767/real-time-plotting-in-while-loop-with-matplotlib
 
 #### Gradient descent visualization
 https://raw.githubusercontent.com/mattnedrich/GradientDescentExample/master/gradient_descent_example.gif
