@@ -7,6 +7,9 @@ import matplotlib.pyplot as plt
 def y_fun(b, m, x):
     return m * x + b
 
+def error(y, b, m, x):
+    return (y - y_fun(b, m, x)) ** 2;
+
 # partial derivitive of error with respect to b
 def b_grad(y, b, m, x, N):
     return -(2/N) * (y - ((m * x) + b))
@@ -15,12 +18,20 @@ def b_grad(y, b, m, x, N):
 def m_grad(y, b, m, x, N):
     return -(2/N) * x * (y - ((m * x) + b))
 
+def compute_error_for_line_given_points_fast(b, m, points):
+    totalError = 0
+    for i in range(0, len(points)):
+        x = points[i, 0]
+        y = points[i, 1]
+        totalError += error(y, b, m, x)
+    return totalError / float(len(points))
+
 def compute_error_for_line_given_points(b, m, points):
     totalError = 0
     for i in range(0, len(points)):
         x = points[i, 0]
         y = points[i, 1]
-        totalError += (y - y_fun(b, m, x)) ** 2
+        totalError += error(y, b, m, x)
     return totalError / float(len(points))
 
 def step_gradient(b, m, points, learningRate):
@@ -51,7 +62,7 @@ def run():
     learning_rate = 0.0001
     initial_b = 0 # initial y-intercept guess
     initial_m = 0 # initial slope guess
-    num_iterations = 100
+    num_iterations = 1000
 
     print "Starting gradient descent at b = {0}, m = {1}, error = {2}".format(initial_b, initial_m, compute_error_for_line_given_points(initial_b, initial_m, points))
     print "Running..."
@@ -60,6 +71,8 @@ def run():
 
     # visualize results
     plt.scatter(points[:, 0], points[:, 1])
+    y_vect = np.vectorize(y_fun)
+    plt.plot(points[:, 0], y_vect(b, m, points[:, 0]))
     plt.show()
 
 if __name__ == '__main__':
