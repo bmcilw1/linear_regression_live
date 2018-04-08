@@ -42,7 +42,7 @@ def run():
     m = 0 # initial slope guess
 
     learning_rate = 0.0001
-    num_iterations = 10000
+    num_iterations = 1000000
 
     print "Starting gradient descent at b = {0}, m = {1}, error = {2}" \
         .format(b, m, compute_error(b, m, x, y))
