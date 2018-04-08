@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
 
 # y = mx + b
 # m is slope, b is y-intercept
@@ -29,7 +30,7 @@ def gradient_descent_runner(x, y, b, m, learning_rate, num_iterations):
     for i in range(num_iterations):
         b, m = step_gradient(b, m, x, y, learning_rate)
 
-    return [b, m]
+    return b, m
 
 def run():
     # read data
@@ -41,17 +42,21 @@ def run():
     m = 0 # initial slope guess
 
     learning_rate = 0.0001
-    num_iterations = 100000
+    num_iterations = 10000
 
-    print "Starting gradient descent at b = {0}, m = {1}, error = {2}".format(b, m, compute_error(b, m, x, y))
+    print "Starting gradient descent at b = {0}, m = {1}, error = {2}" \
+        .format(b, m, compute_error(b, m, x, y))
     print "Running..."
+
     [b, m] = gradient_descent_runner(x, y, b, m, learning_rate, num_iterations)
-    print "After {0} iterations b = {1}, m = {2}, error = {3}".format(num_iterations, b, m, compute_error(b, m, x, y))
+
+    print "After {0} iterations b = {1}, m = {2}, error = {3}" \
+        .format(num_iterations, b, m, compute_error(b, m, x, y))
 
     # visualize results
-    plt.scatter(x, y)
+    plt.scatter(x, y, color='k')
     y_comp = np.dot(m, x) + b
-    plt.plot(x, y_comp)
+    plt.plot(x, y_comp, color='r')
     plt.show()
 
 if __name__ == '__main__':
