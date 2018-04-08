@@ -3,9 +3,12 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 # y = mx + b
+def func(b, m, x):
+    return np.dot(m,x) + b
+
 # m is slope, b is y-intercept
 def compute_error(b, m, x, y):
-    totalError = np.sum((y - np.power(np.dot(m,x) + b, 2)))
+    totalError = np.sum(np.power(y - (np.dot(m,x) + b), 2))
     return totalError / float(len(x))
 
 def step_gradient(b, m, x, y, learningRate):
@@ -52,7 +55,7 @@ def run():
 
     # visualize results
     plt.scatter(x, y, color='k')
-    y_comp = np.dot(m, x) + b
+    y_comp = func(b, m, x)
     plt.plot(x, y_comp, color='r')
     plt.show()
 
