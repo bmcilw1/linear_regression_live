@@ -8,12 +8,9 @@ This is the code for [this](https://youtu.be/uwwWVAgJBcM) video on Youtube by Si
 
 ## Challenge
 
-Re-implement the [previous challenge](https://github.com/bmcilw1/linear_regression_demo), but eliminate the dependency on sklearn. Instead, manually implement a gradient descent approach to arive at the line of best fit. You may find it easier to also eliminate pandas (in favor of numpy's genfromtxt). Use matplotlib or other tool to visualize the progress of your algorthim live (hint - slow it down, and no need to show every training step). You will want to import numpy directly and use it as much as you can for performance gains (it was being used internally by sklearn). Bonus points to the fastest-executing code THAT STILL GO THROUGH ALL STEPS of gradient descent and converge on the solution.
+Re-implement the [previous challenge](https://github.com/bmcilw1/linear_regression_demo), but eliminate the dependency on sklearn. Instead, manually implement a gradient descent approach to arive at the line of best fit. You may find it easier to also eliminate pandas (in favor of numpy's genfromtxt). Use matplotlib or other tool to visualize the results. You will want to import numpy directly and use it as much as you can for performance gains (it was being used internally by sklearn). Bonus points to the fastest-executing code THAT STILL GO THROUGH ALL STEPS of gradient descent and converge on the solution (with learning_rate = 0.0001, num_iterations = 100000). Experiment with different learning rates and number of iterations.
 
 Here are some helpful links:
-
-#### I Stack Overflowed this for you
-https://stackoverflow.com/questions/11874767/real-time-plotting-in-while-loop-with-matplotlib
 
 #### Gradient descent visualization
 https://raw.githubusercontent.com/mattnedrich/GradientDescentExample/master/gradient_descent_example.gif
